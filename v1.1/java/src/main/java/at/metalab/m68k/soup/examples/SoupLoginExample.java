@@ -1,12 +1,14 @@
 package at.metalab.m68k.soup.examples;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Properties;
 
 import at.metalab.m68k.soup.NotAuthorizedException;
 import at.metalab.m68k.soup.OAuthHelper;
 import at.metalab.m68k.soup.SoupClient;
 import at.metalab.m68k.soup.SoupClientImpl;
+import at.metalab.m68k.soup.SoupHelper;
 import at.metalab.m68k.soup.resource.Blog;
 import at.metalab.m68k.soup.resource.User;
 
@@ -37,6 +39,8 @@ public class SoupLoginExample {
 				"found %d blogs to which the user has write access:", user
 						.getBlogs().size()));
 		System.out.println();
+
+		Collections.sort(user.getBlogs(), SoupHelper.Comparators.Group.BY_NAME);
 
 		for (Blog blog : user.getBlogs()) {
 			System.out.println(String.format("blog.name=%s", blog.getName()));

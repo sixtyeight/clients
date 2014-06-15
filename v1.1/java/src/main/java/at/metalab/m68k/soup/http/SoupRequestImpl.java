@@ -28,15 +28,15 @@ public abstract class SoupRequestImpl<E> implements SoupRequest<E> {
 
 		long tsStart = System.currentTimeMillis();
 		try {
-			System.out.println("[REQUEST] " + request.getVerb() + " "
-					+ request.getCompleteUrl());
+//			System.out.println("[REQUEST] " + request.getVerb() + " "
+//					+ request.getCompleteUrl());
 			response = request.send();
-			System.out.println("> " + response.getBody());
+//			System.out.println("> " + response.getBody());
 		} finally {
 			long tsEnd = System.currentTimeMillis();
-			System.out.println("[REQUEST] SC=" + response.getCode() + " in "
-					+ (tsEnd - tsStart) + "ms <- " + request.getVerb() + " "
-					+ request.getCompleteUrl());
+			// System.out.println("[REQUEST] SC=" + response.getCode() + " in "
+			// + (tsEnd - tsStart) + "ms <- " + request.getVerb() + " "
+			// + request.getCompleteUrl());
 		}
 
 		soupErrorHandler.handle(request, response);

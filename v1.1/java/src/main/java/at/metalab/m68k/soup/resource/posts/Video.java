@@ -45,6 +45,11 @@ public class Video extends AbstractPost {
 				protected InputStream getData() {
 					return getData();
 				}
+				
+				@Override
+				protected String getSource() {
+					return null;
+				}
 			};
 		} else {
 			return new JsonPostTemplate(blog, ENDPOINT) {

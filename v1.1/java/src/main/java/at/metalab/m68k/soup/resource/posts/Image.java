@@ -44,6 +44,11 @@ public class Image extends AbstractPost {
 				protected InputStream getData() {
 					return Image.this.getData();
 				}
+
+				@Override
+				protected String getSource() {
+					return Image.this.getSource();
+				}
 			};
 		} else {
 			return new JsonPostTemplate(blog, ENDPOINT) {

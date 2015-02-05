@@ -37,6 +37,11 @@ public class FileUpload extends AbstractPost {
 			protected InputStream getData() {
 				return FileUpload.this.getData();
 			}
+
+			@Override
+			protected String getSource() {
+				return null;
+			}
 		};
 	}
 

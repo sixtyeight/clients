@@ -105,6 +105,8 @@ public abstract class AbstractPost extends PostProperties implements Postable {
 
 		protected abstract String getDescription();
 
+		protected abstract String getSource();
+
 		protected abstract InputStream getData();
 
 		private String url;
@@ -119,6 +121,8 @@ public abstract class AbstractPost extends PostProperties implements Postable {
 		protected HttpEntity buildEntity() {
 			return MultipartEntityBuilder
 					.create()
+					.addPart("post[source]",
+							new StringBody(getSource(), ContentType.TEXT_PLAIN))
 					.addPart("post[file]",
 							new InputStreamBody(getData(), getFilename()))
 					.addPart("post[tags]",
